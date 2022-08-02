@@ -90,7 +90,7 @@ These instructions apply to both SIGWfast.py and SIGWfastEOS.py and concern the 
 The script is now be ready to be run!
 
 ## Output
-For every run the code produces two plots: one of the interpolated scalar power spectrum P(k) and one of the computed gravitational wave spectrum Omega_GW(k). The data for Omega_GW(k) is also saved in 'data/'+filenameGW+'.npz' and can be accessed via the keywords`'karray'` and `'OmegaGW'`. If `regenerate = False` is selected and a results file with the name "filenameGW" exists, Omega_GW(k) is plotted from the data in the file without any new computation.
+For every run the code produces two plots: one of the interpolated scalar power spectrum P(k) and one of the computed gravitational wave spectrum Omega_GW(k). The data for Omega_GW(k) is also saved in 'data/'+filenameGW+'.npz' and can be accessed via the keywords `'karray'` and `'OmegaGW'`. If `regenerate = False` is selected and a results file with the name "filenameGW" exists, Omega_GW(k) is plotted from the data in the file without any new computation.
 
 On the testing machine (Macbook Pro with M1 CPU) a computation takes O(1) seconds using the default settings.
 
