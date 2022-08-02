@@ -2,7 +2,7 @@
 
 ## Description
 
-SIGWfast release 1.0 (2022). This code has been written by Dr Lukas T. Witkowski and is distributed under the MIT License.
+SIGWfast release 1.0 (2022). This code has been written by Dr. Lukas T. Witkowski and is distributed under the MIT License.
 
 SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spectrum from a primordial scalar power spectrum that can be given in analytical or numerical form. SIGWfast was written with the aim of being easy to install and use, and to produce results fast, typically in a matter of a few seconds. To this end the code employs vectorization techniques within python, but there is also the option to compile a C++ module to perform the relevant integrations, further accelerating the computation. The python-only version should run on all platforms that support python3. The version employing the C++ module is only available for Linux and MacOS systems. For more details on the physics see the documentation file "SIGWfastGuide.pdf".
 
