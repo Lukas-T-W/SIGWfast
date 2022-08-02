@@ -51,7 +51,7 @@ The subdirectory "libraries" contains files necessary for performing the computa
 The subdirectory "data" will receive the result data in a .npz file. Also, if the input is a scalar power spectrum in numerical form, this needs to be provided in the data subdirectory as a .npz file. An example file "P_of_k.npz" is provided.
 
 ### Quick guide
-Set flags and values for input parameters in the block of code titled "Configuration". Provide the scalar power spectrum either by defining a function `Pofk(k)` in the block of code titled "Primordial scalar power spectrum" or in form of numerical data in a file data/filenameP.npz. See the more detailed guide below for how this file is to be prepared. After this, you're good to go!
+Set flags and values for input parameters in the block of code titled "Configuration". Provide the scalar power spectrum either by defining a function `Pofk(k)` in the block of code titled "Primordial scalar power spectrum" or in form of numerical data in a file 'data/'+filenamePz+'.npz'. See the more detailed guide below for how this file is to be prepared. After this, you're good to go!
 
 ### Configuration of SIGWfast.py: step-by-step guide
 
