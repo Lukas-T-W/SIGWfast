@@ -95,7 +95,7 @@ For every run the code produces two plots: one of the interpolated scalar power 
 For the default settings the code is running the python-only routine and on the testing machine (M1 Mac) produced the result in O(1) seconds. 
 
 ## Troubleshooting
-SIGWfast has been written for python3 and will not work with python2. It has been developed using python 3.9.7 and "conda" for environment and package management, but has also been tested on python 3.8. The development machine was a Macbook Pro with a M1 CPU and running MacOS 12.1 Monterey. Python was installed in its x86 version and was running on the M1 chip via the Rosetta2 translator. SIGWfast has also been tested on Ubuntu 20.04.4 running on a CPU with Intel x86 architecture.
+SIGWfast has been written for python3 and will not work with python2. It has been developed using python 3.9.7 and "conda" for environment and package management, but has also been tested on python 3.8. The development machine was a Macbook Pro with a M1 CPU and running MacOS 12.1 Monterey. Python was installed in its x86 version and was running on the M1 chip via the Rosetta2 translator. SIGWfast has also been tested on Ubuntu 20.04.4 and Windows Server 2019 running on a CPU with Intel x86 architecture.
 
 ### Compiling the C++ module
 One possible source of errors is the compilation of the C++ module. This is activated by setting the flag `Use_Cpp = True` in the block of code titled `Configuration' and its use leads to a 20%-25% reduction in computation times. This option is only available for systems running on Linux and MacOS. When trying to use the C++ option on Windows, the code automatically reverts to the python-only version.
