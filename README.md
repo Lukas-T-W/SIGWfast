@@ -4,7 +4,7 @@
 
 SIGWfast release 1.0 (2022). This code has been written by Dr Lukas T. Witkowski and is distributed under the MIT License.
 
-SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spectrum from a primordial scalar power spectrum that can be given in analytical or numerical form. SIGWfast was written with the aim of being easy to install and use, and to produce results fast, typically in a matter of a few seconds. To this end the code employs vectorization techniques within python, but there is also the option to compile a C++ module to perform the relevant integrations, further accelerating the computation. The python-only version should run on all platforms that support python3. The version employing the C++ module is only available for Linux and MacOS systems. For more details on the physics see the scientific documentation file "SIGWfastGuide.pdf".
+SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spectrum from a primordial scalar power spectrum that can be given in analytical or numerical form. SIGWfast was written with the aim of being easy to install and use, and to produce results fast, typically in a matter of a few seconds. To this end the code employs vectorization techniques within python, but there is also the option to compile a C++ module to perform the relevant integrations, further accelerating the computation. The python-only version should run on all platforms that support python3. The version employing the C++ module is only available for Linux and MacOS systems. For more details on the physics see the documentation file "SIGWfastGuide.pdf".
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ The parent directory contains two python files:
 1. SIGWfast.py computes the gravitational wave spectrum induced during an era of radiation domination. This is expected to be the case of principal interest for most users and SIGWfast.py is a simple no-frills code to get this result quickly. 
 2. In the second code file SIGWfastEOS.py the equation of state of the universe during gravitational wave generation can be chosen, and thus eras other than radiation domination can be considered. As a result, this code has more adjustable parameters than SIGWfast.py.
 
-For more details on the precise quantities computed by the two codes and their differences see the scientific documentation file SIGWfastGuide.pdf. 
+For more details on the precise quantities computed by the two codes and their differences see the documentation file "SIGWfastGuide.pdf". 
 
 The subdirectory "libraries" contains files necessary for performing the computation:
 * sdintegral.py contains the definitions and kernels for computing the relevant integrals.
@@ -67,7 +67,7 @@ This is a set of detailed instructions for configuring SIGWfast.py. After the he
 
 5. Set the flag `Use_Cpp`. If set to `True`, the code imports methods from the compiled module `sigwfast` to perform the integration, or, if the module does not yet exist, initiates a compilation of it from /libraries/SIGWfast.cpp. This requires a functioning C++ compiler in addition to python. If set to `False`, the entire computation is done within python, using only the modules listed above under "Prerequisites".
 
-6. Set `norm`. This is a normalization factor that multiplies the gravitational wave spectrum. For `norm = 1` the script SIGWfast.py (and SIGWfastEOS.py) computes the energy density fraction in gravitational waves Omega_GW at the time of radiation domination. To get the corresponding spectrum today requires a rescaling, which can be done by appropriately choosing `norm`. See the scientific documentation for more details. The data plotted and saved in 'data/'+filenameGW+'.npz' is the gravitational wave spectrum after multiplication with this normalization factor.
+6. Set `norm`. This is a normalization factor that multiplies the gravitational wave spectrum. For `norm = 1` the script SIGWfast.py (and SIGWfastEOS.py) computes the energy density fraction in gravitational waves Omega_GW at the time of radiation domination. To get the corresponding spectrum today requires a rescaling, which can be done by appropriately choosing `norm`. See the documentation file "SIGWfastGuide.pdf" for more details. The data plotted and saved in 'data/'+filenameGW+'.npz' is the gravitational wave spectrum after multiplication with this normalization factor.
 
 7. Declare the range of wavenumbers k stored in `komega` for which the gravitational wave spectrum is to be computed. Here this is done by defining both a lower limit `kmin`, an upper limit `kmax` and setting the number of entries `nk` of `komega`. This is then filled with values that are linearly spaced (`numpy.linspace`) or logarithmically spaced (`numpy.geomspace`). Alternative definitions of `komega` to these are perfectly allowed, as long as `komega` is a numpy array. Note that for an analytic primordial power spectrum as input (`Num_Pofk=False`), a good guideline is to choose `komega` such that P(k), when sampled over `komega`, exhibits all relevant features of the full scalar power spectrum.
 
@@ -77,7 +77,7 @@ All configuration steps of SIGWfast.py also apply to SIGWfastEOS.py. In addition
 
 8. In SIGWfastEOS.py we also need to set a value for the equation of state parameter `w` for the era during which the gravitational waves are induced. In SIGWfast.py this value was fixed to w=1/3 corresponding to radiation domination. In SIGWfastEOS.py the parameter w can take values in 0 < w < 1, corresponding to the range of validity of the transfer functions used.
 
-9. Set the flag `cs_equal_one`. The computation of Omega_GW(k) can be done for a universe behaving like a perfect adiabatic fluid, or a universe whose energy is dominated by a canonically normalised scalar field. In the former case the propagation speed of scalar fluctuations c_s is related to the equation of state parameter as c_s^2=w, while in the latter case c_s^2=1. See the scientific documentation for more details. By setting `cs_equal_one = True` the computation is performed for the canonical scalar field case, while for `cs_equal_one = False` it is the adiabatic perfect fluid result that is computed.
+9. Set the flag `cs_equal_one`. The computation of Omega_GW(k) can be done for a universe behaving like a perfect adiabatic fluid, or a universe whose energy is dominated by a canonically normalised scalar field. In the former case the propagation speed of scalar fluctuations c_s is related to the equation of state parameter as c_s^2=w, while in the latter case c_s^2=1. See the documentation file "SIGWfastGuide.pdf" for more details. By setting `cs_equal_one = True` the computation is performed for the canonical scalar field case, while for `cs_equal_one = False` it is the adiabatic perfect fluid result that is computed.
 
 ### Primordial scalar power spectrum 
 
@@ -116,4 +116,4 @@ SIGWfast is distributed under the MIT license. You should have received a copy o
 
 ## Acknowledgements
 
-During the development of SIGWfast Lukas T. Witkowski was supported by the European Research Council under the European Union's Horizon 2020 research and innovation programme (grant agreement No 758792, project GEODESI). We are indebted to Dr. Jacopo Fumagalli, without whom SIGWfast would have never been developed in this form and whose inputs vastly improved the code. We are also grateful to Prof. Sebastien Renaux-Petel, whose scientific insights and skilled leadership of the research group made the development of SIGWfast possible. We also thank Dr. John W. Ronayne, whose immense knowledge of python helped get this project off the ground.  
+During the development of SIGWfast Lukas T. Witkowski was supported by the European Research Council under the European Union's Horizon 2020 research and innovation programme (grant agreement No 758792, project GEODESI). We are indebted to Dr. Jacopo Fumagalli, without whom SIGWfast would have never been developed in this form and whose inputs vastly improved the code. We are also grateful to Prof. Sebastien Renaux-Petel, whose scientific insights and skilled leadership of the research group made the development of SIGWfast possible. We also thank Dr. John W. Ronayne, whose immense knowledge of python helped get this project off the ground. 
