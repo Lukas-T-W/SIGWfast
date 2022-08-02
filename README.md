@@ -98,17 +98,17 @@ For the default settings the code is running the python-only routine and on the 
 SIGWfast has been written for python3 and will not work with python2. It has been developed using python 3.9.7 and "conda" for environment and package management, but has also been tested on python 3.8. The development machine was a Macbook Pro with a M1 CPU and running MacOS 12.1 Monterey. Python was installed in its x86 version and was running on the M1 chip via the Rosetta2 translator. SIGWfast has also been tested on Ubuntu 20.04.4 and Windows Server 2019 running on a CPU with Intel x86 architecture.
 
 ### Compiling the C++ module
-One possible source of errors is the compilation of the C++ module. This is activated by setting the flag `Use_Cpp = True` in the block of code titled `Configuration' and its use leads to a 20%-25% reduction in computation times. This option is only available for systems running on Linux and MacOS. When trying to use the C++ option on Windows, the code automatically reverts to the python-only version.
+One possible source of errors is the compilation of the C++ module. This is activated by setting the flag `Use_Cpp = True` in the block of code titled "Configuration" and its use leads to a 20%-25% reduction in computation times. This option is only available for systems running on Linux and MacOS. When trying to use the C++ option on Windows, the code automatically reverts to the python-only version.
 
-On an older system running python 3.8 on MacOS 10.12 Sierra we encountered the problem that the automatic compilation of the C++ from the code was not initiated. As a result the module "sigwfast" could not be found and the computation ended with an error. To overcome this, the module "sigwfast" can be compiled by hand from the command line. It can then be used indefinitely, as it only has to be compiled only once. To do so, open the terminal and go to the "libraries" subfolder in the parent directory. For definiteness, here we assume that the parent directory "SIGWfast" is located in the home directory `~'. Hence, on the command line enter: 
+On an older system running python 3.8 on MacOS 10.12 Sierra we encountered the problem that the automatic compilation of the C++ from the code was not initiated. As a result the module "sigwfast" could not be found and the computation ended with an error. To overcome this, the module "sigwfast" can be compiled by hand from the command line. It can then be used indefinitely, as it only has to be compiled only once. To do so, open the terminal and go to the "libraries" subfolder in the parent directory. For definiteness, here we assume that the parent directory "SIGWfast-main" is located in the home directory "~". Hence, on the command line enter: 
 
-`cd ~/SIGWfast/libraries`. 
+`cd ~/SIGWfast-main/libraries`. 
 
 We have to work in this directory so that the file `SIGWfast.cpp` with the C++ code can be found. To compile the module by hand then enter:
 
-`python3 setup.py install --home=~/SIGWfast/libraries`
+`python3 setup.py install --home=~/SIGWfast-main/libraries`
 
-We used the command `python3` to make sure that python3 is used, as the command `python` can sometimes refer to the version of python2 that is shipped together with MacOS. The flag `--home=...` ensures that the module is deposited within the "libraries" subdirectory, rather than added to the other modules of the python distribution. This makes it easier to remove it later if desired. 
+We used the command `python3` to make sure that python3 is used, as the command `python` can sometimes refer to the version of python2 that is shipped together with MacOS. The flag `--home=...` ensures that the module is deposited within the "libraries" subdirectory, rather than added to the other modules of the python distribution. This makes it easier to remove it later if desired.  
 
 ## Licensing
 
