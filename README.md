@@ -31,7 +31,8 @@ Optional C++ extension: This is only supported on systems running on Linux or Ma
 and a working C++ compiler.
 
 ## Installation
-Download SIGWfast.zip. After decompression the necessary files and directory structure are already in place in the parent directory. 
+
+To use SIGWfast, download the repository as a .zip file. After decompression the necessary files and directory structure are already in place in the parent directory.
 
 ## User guide
 
@@ -51,6 +52,7 @@ The subdirectory "libraries" contains files necessary for performing the computa
 The subdirectory "data" will receive the result data in a .npz file. Also, if the input is a scalar power spectrum in numerical form, this needs to be provided in the data subdirectory as a .npz file. An example file "P_of_k.npz" is provided.
 
 ### Quick guide
+
 Set flags and values for input parameters in the block of code titled "Configuration". Provide the scalar power spectrum either by defining a function `Pofk(k)` in the block of code titled "Primordial scalar power spectrum" or in form of numerical data in a file 'data/'+filenamePz+'.npz'. See the more detailed guide below for how this file is to be prepared. After this, you're good to go!
 
 ### Configuration of SIGWfast.py: step-by-step guide
@@ -90,14 +92,17 @@ These instructions apply to both SIGWfast.py and SIGWfastEOS.py and concern the 
 The script is now be ready to be run!
 
 ## Output
+
 For every run the code produces two plots: one of the interpolated scalar power spectrum P(k) and one of the computed gravitational wave spectrum Omega_GW(k). The data for Omega_GW(k) is also saved in 'data/'+filenameGW+'.npz' and can be accessed via the keywords `'karray'` and `'OmegaGW'`. If `regenerate = False` is selected and a results file with the name "filenameGW" exists, Omega_GW(k) is plotted from the data in the file without any new computation.
 
 On the testing machine (Macbook Pro with M1 CPU) a computation takes O(1) seconds using the default settings.
 
 ## Troubleshooting
+
 SIGWfast has been written for python3 and will not work with python2. It has been developed using python 3.9.7 and "conda" for environment and package management, but has also been tested on python 3.8. The development machine was a Macbook Pro with a M1 CPU and running MacOS 12.1 Monterey. Python was installed in its x86 version and was running on the M1 chip via the Rosetta2 translator. SIGWfast has also been tested on Ubuntu 20.04.4 and Windows Server 2019 running on a CPU with Intel x86 architecture.
 
 ### Compiling the C++ module
+
 One possible source of errors is the compilation of the C++ module. This is activated by setting the flag `Use_Cpp = True` in the block of code titled "Configuration" and its use leads to a 20%-25% reduction in computation times. This option is only available for systems running on Linux and MacOS. When trying to use the C++ option on Windows, the code automatically reverts to the python-only version.
 
 On an older system running python 3.8 on MacOS 10.12 Sierra we encountered the problem that the automatic compilation of the C++ from the code was not initiated. As a result the module "sigwfast" could not be found and the computation ended with an error. To overcome this, the module "sigwfast" can be compiled by hand from the command line. It can then be used indefinitely, as it only has to be compiled only once. To do so, open the terminal and go to the "libraries" subfolder in the parent directory. For definiteness, here we assume that the parent directory "SIGWfast-main" is located in the home directory "~". Hence, on the command line enter: 
