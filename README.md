@@ -90,9 +90,9 @@ These instructions apply to both SIGWfast.py and SIGWfastEOS.py and concern the 
 The script is now be ready to be run!
 
 ## Output
-For every run the code produces two plots: one of the interpolated scalar power spectrum P(k) and one of the computed gravitational wave spectrum Omega_GW(k). The data for Omega_GW(k) is also saved in 'data/'+filenameGW+'.npz' and can be accessed via the keywords`'karray'` and `'OmegaGW'`. If `regenerate=False` and the file 'data/'+filenameGW+'.npz' exists, Omega_GW(k) is plotted from the data in the file without any new computation.
+For every run the code produces two plots: one of the interpolated scalar power spectrum P(k) and one of the computed gravitational wave spectrum Omega_GW(k). The data for Omega_GW(k) is also saved in 'data/'+filenameGW+'.npz' and can be accessed via the keywords`'karray'` and `'OmegaGW'`. If `regenerate = False` is selected and a results file with the name "filenameGW" exists, Omega_GW(k) is plotted from the data in the file without any new computation.
 
-For the default settings the code is running the python-only routine and on the testing machine (M1 Mac) produced the result in O(1) seconds. 
+On the testing machine (Macbook Pro with M1 CPU) a computation takes O(1) seconds using the default settings.
 
 ## Troubleshooting
 SIGWfast has been written for python3 and will not work with python2. It has been developed using python 3.9.7 and "conda" for environment and package management, but has also been tested on python 3.8. The development machine was a Macbook Pro with a M1 CPU and running MacOS 12.1 Monterey. Python was installed in its x86 version and was running on the M1 chip via the Rosetta2 translator. SIGWfast has also been tested on Ubuntu 20.04.4 and Windows Server 2019 running on a CPU with Intel x86 architecture.
