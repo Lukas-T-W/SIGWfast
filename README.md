@@ -31,7 +31,7 @@ Optional C++ extension: This is only supported on systems running on Linux or Ma
 and a working C++ compiler.
 
 ## Installation
-Download SIGWfast.zip. After decompression the necessary files and directory structure are already in place in the parent directory "SIGWfast". 
+Download SIGWfast.zip. After decompression the necessary files and directory structure are already in place in the parent directory. 
 
 ## User guide
 
