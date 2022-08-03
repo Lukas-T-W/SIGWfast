@@ -8,7 +8,7 @@ SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spect
 
 ## Prerequisites
 
-SIGWfast can be used on any system that supports python3. We recommend using python environments and a package manager such as `conda`. The following python modules are required:
+SIGWfast can be used on any system that supports python 3. We recommend using python environments and a package manager such as `conda`. The following python modules are required:
 
 * math, 
 * matplotlib, 
