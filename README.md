@@ -4,7 +4,7 @@
 
 SIGWfast release 1.0 (2022). This code has been written by Dr. Lukas T. Witkowski and is distributed under the MIT License.
 
-SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spectrum from a primordial scalar power spectrum that can be given in analytical or numerical form. SIGWfast was written with the aim of being easy to install and use, and to produce results fast, typically in a matter of a few seconds. To this end the code employs vectorization techniques within python, but there is also the option to compile a C++ module to perform the relevant integrations, further accelerating the computation. The python-only version should run on all platforms that support python3. The version employing the C++ module is only available for Linux and MacOS systems. For more details on the physics see the documentation file "SIGWfastGuide.pdf".
+SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spectrum from a primordial scalar power spectrum that can be given in analytical or numerical form. SIGWfast was written with the aim of being easy to install and use, and to produce results fast, typically in a matter of a few seconds. To this end the code employs vectorization techniques within python, but there is also the option to compile a C++ module to perform the relevant integrations, further accelerating the computation. The python-only version should run on all platforms that support python 3. The version employing the C++ module is only available for Linux and MacOS systems. For more details on the physics see the documentation file "SIGWfastGuide.pdf".
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ On the testing machine (Macbook Pro with M1 CPU) a computation takes O(1) second
 
 ## Troubleshooting
 
-SIGWfast has been written for python3 and will not work with python2. It has been developed using python 3.9.7 and "conda" for environment and package management, but has also been tested on python 3.8. The development machine was a Macbook Pro with a M1 CPU and running MacOS 12.1 Monterey. Python was installed in its x86 version and was running on the M1 chip via the Rosetta2 translator. SIGWfast has also been tested on Ubuntu 20.04.4 and Windows Server 2019 running on a CPU with Intel x86 architecture.
+SIGWfast has been written for python 3 and will not work with python 2. It has been developed using python 3.9.7 and "conda" for environment and package management, but has also been tested on python 3.8. The development machine was a Macbook Pro with a M1 CPU and running MacOS 12.1 Monterey. Python was installed in its x86 version and was running on the M1 chip via the Rosetta2 translator. SIGWfast has also been tested on Ubuntu 20.04.4 and Windows Server 2019 running on a CPU with Intel x86 architecture.
 
 ### Compiling the C++ module
 
@@ -113,7 +113,7 @@ We have to work in this directory so that the file `SIGWfast.cpp` with the C++ c
 
 `python3 setup.py install --home=~/SIGWfast-main/libraries`
 
-We used the command `python3` to make sure that python3 is used, as the command `python` can sometimes refer to the version of python2 that is shipped together with MacOS. The flag `--home=...` ensures that the module is deposited within the "libraries" subdirectory, rather than added to the other modules of the python distribution. This makes it easier to remove it later if desired.  
+We used the command `python3` to make sure that python 3 is used, as the command `python` can sometimes refer to the version of python 2 that is shipped together with MacOS. The flag `--home=...` ensures that the module is deposited within the "libraries" subdirectory, rather than added to the other modules of the python distribution. This makes it easier to remove it later if desired.  
 
 ## Licensing
 
