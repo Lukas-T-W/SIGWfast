@@ -32,7 +32,7 @@ and a working C++ compiler.
 
 ## Installation
 
-To use SIGWfast, download the repository as a .zip file. After decompression the necessary files and directory structure are already in place in the parent directory.
+To use SIGWfast, download the latest release as a .zip or .tar.gz archive. After decompression the necessary files and directory structure are already in place in the parent directory.
 
 ## User guide
 
