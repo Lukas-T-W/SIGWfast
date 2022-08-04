@@ -73,7 +73,7 @@ This is a set of detailed instructions for configuring SIGWfast.py. After the he
 
 7. Declare the range of wavenumbers $k$ stored in `komega` for which the gravitational wave spectrum is to be computed. Here this is done by defining both a lower limit `kmin`, an upper limit `kmax` and setting the number of entries `nk` of `komega`. This is then filled with values that are linearly spaced (`numpy.linspace`) or logarithmically spaced (`numpy.geomspace`). Alternative definitions of `komega` to these are perfectly allowed, as long as `komega` is a numpy array. Note that for an analytic primordial power spectrum as input (`Num_Pofk=False`), a good guideline is to choose `komega` such that $P_{\zeta}(k)$, when sampled over `komega`, exhibits all relevant features of the full scalar power spectrum. Values for $k$ can be given in any units of choice. In the output plots this unit is denoted by $k_{\rm ref}$.
 
-### Configuration of SIGWfastEOS.py
+### Configuration of SIGWfastEOS.py: step-by-step guide
 
 All configuration steps of SIGWfast.py also apply to SIGWfastEOS.py. In addition we need to declare one more parameter and set one additional flag. 
 
