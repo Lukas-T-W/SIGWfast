@@ -57,8 +57,8 @@ filenamePz = 'P_of_k'
 # Note that Use_Cpp = True will only work for Linux / MacOS, but not Windows.
 Use_Cpp = False #True
 
-# Set equation of state parameter w with 0 < w < 1
-w = 1/3 # 0 < w < 1
+# Set equation of state parameter w
+w = 1/3 # requires 0 < w < 1 if cs_equal_one = False below
 
 # Set cs_equal_one = True if the sound speed c_s is unity, i.e. c_s^2=1, as for
 # a universe dominated by a canonical scalar field. 
@@ -175,6 +175,9 @@ else:
     #np.savez('data/'+filenameP, karray=kpzeta, Pzeta=Pinter(kpzeta))
 
 def compute_w():
+    if (w<=0 or w>=1):
+        print('Need to choose 0 < w < 1 with flag cs_equal_one = False.')
+        sys.exit()
     # Declare beta=(1-3w)/(1+3w)
     beta=sd.beta(w)
     # Declare arrays of integration variables d and s. The s-array is split
@@ -419,37 +422,34 @@ def compute_1():
     return OmegaGW
 
 def main():
-    if (w<=0 or w>=1):
-        print('Need to choose 0 < w < 1.')
+    if regenerate:
+        kplot = komega
+        if cs_equal_one:
+            Omegaplot = compute_1()
+        else:
+            Omegaplot = compute_w()
     else:
-        if regenerate:
+        try:    
+            GWdata    = np.load('data/'+filenameGW+'.npz')
+            kplot     = GWdata['karray']
+            Omegaplot = GWdata['OmegaGW']
+        except FileNotFoundError:
+            print('No result file data/'+filenameGW+'.npz found. ' \
+                  'Initiate new computation.')
             kplot = komega
             if cs_equal_one:
                 Omegaplot = compute_1()
             else:
                 Omegaplot = compute_w()
-        else:
-            try:    
-                GWdata    = np.load('data/'+filenameGW+'.npz')
-                kplot     = GWdata['karray']
-                Omegaplot = GWdata['OmegaGW']
-            except FileNotFoundError:
-                print('No result file data/'+filenameGW+'.npz found. ' \
-                      'Initiate new computation.')
-                kplot = komega
-                if cs_equal_one:
-                    Omegaplot = compute_1()
-                else:
-                    Omegaplot = compute_w()
         
-        # Plot Omega_GW(k)
-        fig, ax = plt.subplots()
-        ax.plot(kplot, Omegaplot)
-        ax.set_title(r'$\Omega_{GW}$ vs. $k$')
-        ax.set_xlabel(r'$k \ / \ k_{ref}$')
-        ax.set_ylabel(r'$\Omega_{GW} \times (k_{ref} \ / \ k_{rh})^{2b}$')
-        ax.set_xscale('log')
-        ax.set_yscale('log')
+    # Plot Omega_GW(k)
+    fig, ax = plt.subplots()
+    ax.plot(kplot, Omegaplot)
+    ax.set_title(r'$\Omega_{GW}$ vs. $k$')
+    ax.set_xlabel(r'$k \ / \ k_{ref}$')
+    ax.set_ylabel(r'$\Omega_{GW} \times (k_{ref} \ / \ k_{rh})^{2b}$')
+    ax.set_xscale('log')
+    ax.set_yscale('log')
 
 #=============================================================================#
                      # EXECUTE SCRIPT AS MAIN PROGRAMME #
