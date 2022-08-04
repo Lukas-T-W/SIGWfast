@@ -32,7 +32,7 @@ def beta(w):
     beta=(1-3*w)/(1+3*w)
     return beta
 
-# Define the arrays over the integration variables d and s.
+# Define the arrays over the integration variables d and s for c_s^2=w.
 # d is sampled linearly over its interval [0, 1-epsilon]. The epsilon is
 # included so that (d-s) is always at least as large as epsilon.
 # The s-array is split into s1array holding values on [1, 1/sqrt(w)-epsilon] 
@@ -104,12 +104,12 @@ def arrays_r(karray,epsilon=10**(-10),nd=100):
 
 # Define functions I_J^2 and I_Y^2 as given in arxiv:1912.05583:
     
-# Define function I_J^2 for s<1/sqrt(w). As this is zero, we do not need to use 
-# it, so it is commented out. It is included here for completeness.
+# Define function I_J^2 for c_s^2=w and s<1/sqrt(w). As this is zero, we do not  
+# need to use it, so it is commented out. It is included here for completeness.
 #def IJsq1_w(d,s,b):
 #    return 0
 
-# Define function I_J^2 for s>1/sqrt(w)
+# Define function I_J^2 for c_s^2=w and s>1/sqrt(w)
 def IJsq2_w(d,s,b):
     vv = (1-b)/3/(1+b)
     y  = (s**2+d**2-2/vv)/(s**2-d**2)
@@ -122,7 +122,7 @@ def IJsq2_w(d,s,b):
     f  = N/(s**2-d**2)**2*(1-y**2)**b*(P1+(2+b)/(1+b)*P2)**2
     return f
 
-# Define function I_Y^2 for s<1/sqrt(w) 
+# Define function I_Y^2 for c_s^2=w and s<1/sqrt(w) 
 def IYsq1_w(d,s,b):
     vv = (1-b)/3/(1+b)
     y  =-(s**2+d**2-2/vv)/(s**2-d**2)
@@ -135,7 +135,7 @@ def IYsq1_w(d,s,b):
     f  = N/(s**2-d**2)**2*(4/np.pi/np.pi*(Q3+2*(2+b)/(1+b)*Q4)**2)
     return f
 
-# Define function I_Y^2 for s>1/sqrt(w) 
+# Define function I_Y^2 for c_s^2=w and s>1/sqrt(w) 
 def IYsq2_w(d,s,b):
     vv = (1-b)/3/(1+b)
     y  = (s**2+d**2-2/vv)/(s**2-d**2)
