@@ -4,7 +4,7 @@
 
 SIGWfast release 1.0 (2022). This code has been written by Dr. Lukas T. Witkowski and is distributed under the MIT License.
 
-SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spectrum from a primordial scalar power spectrum that can be given in analytical or numerical form. SIGWfast was written with the aim of being easy to install and use, and to produce results fast, typically in a matter of a few seconds. To this end the code employs vectorization techniques within python, but there is also the option to compile a C++ module to perform the relevant integrations, further accelerating the computation. The python-only version should run on all platforms that support python 3. The version employing the C++ module is only available for Linux and MacOS systems. For more details on the physics see the documentation file "SIGWfastGuide.pdf".
+SIGWfast is a python code to compute the Scalar-Induced Gravitational Wave spectrum $\Omega_{GW}(k)$ from a primordial scalar power spectrum $P(k)$ that can be given in analytical or numerical form. SIGWfast was written with the aim of being easy to install and use, and to produce results fast, typically in a matter of a few seconds. To this end the code employs vectorization techniques within python, but there is also the option to compile a C++ module to perform the relevant integrations, further accelerating the computation. The python-only version should run on all platforms that support python 3. The version employing the C++ module is only available for Linux and MacOS systems. For more details on the physics see the documentation file "SIGWfastGuide.pdf".
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To use SIGWfast, download the latest release as a .zip or .tar.gz archive. After
 ### File content
 
 The parent directory contains two python files:
-1. SIGWfast.py computes the gravitational wave spectrum induced during an era of radiation domination. This is expected to be the case of principal interest for most users and SIGWfast.py is a simple no-frills code to get this result quickly. 
+1. SIGWfast.py computes the gravitational wave spectrum $\Omega_{\rm GW}(k)$ induced during an era of radiation domination. This is expected to be the case of principal interest for most users and SIGWfast.py is a simple no-frills code to get this result quickly. 
 2. In the second code file SIGWfastEOS.py the equation of state of the universe during gravitational wave generation can be chosen, and thus eras other than radiation domination can be considered. As a result, this code has more adjustable parameters than SIGWfast.py.
 
 For more details on the precise quantities computed by the two codes and their differences see the documentation file "SIGWfastGuide.pdf". 
