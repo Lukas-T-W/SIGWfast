@@ -222,5 +222,5 @@ def Psquared(d,s,P,k):
 
 # Define an integrator over 1D arrays based on the trapezoidal rule
 def intarray1D(f,dx):
-    S = (f[1:-1]+f[0:-2])*0.5*(dx[1:-1]-dx[0:-2])
+    S = (f[1:]+f[0:-1])*0.5*(dx[1:]-dx[0:-1])
     return np.sum(S)

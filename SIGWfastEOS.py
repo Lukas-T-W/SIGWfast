@@ -19,7 +19,7 @@ import tqdm as tqdm
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 
-### GWfast
+### SIGWfast
 sys.path.append('libraries/')
 import sdintegral as sd
 
@@ -32,10 +32,10 @@ import sdintegral as sd
 # 'karray' and 'OmegaGW' respectively.   
 filenameGW = 'OmegaGW_of_k'
 
-# Choose whether to regenerate the data. If True, Omega_GW(k) is recomputed.
-# If False, the data in data/filenameGW.npz is plotted and new data is only   
-# computed if this file is absent. This is a safety-measure to not overwrite
-# previous data.
+# Choose whether to regenerate the data. If True, Omega_GW(k) is recomputed in
+# every run. If False, the data in data/filenameGW.npz is plotted and new data    
+# is only computed if this file is absent. This is a safety-measure to not 
+# overwrite previous data.
 regenerate = True #False
 
 # Choose whether to compute Omega_GW from a primordial scalar power spectrum
